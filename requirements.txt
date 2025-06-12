@@ -1,16 +1,1 @@
-streamlit
-yfinance
-pandas==1.5.3
-numpy==1.23.5
-datetime
-pathlib
-pandas-ta==0.3.14b0
-scikit-learn
-tensorflow
-plotly
-requests
-beautifulsoup4
-nltk
-transformers
-urllib3
-openpyxl
+streamlit 
