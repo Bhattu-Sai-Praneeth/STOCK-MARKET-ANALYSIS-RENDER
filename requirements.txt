@@ -1,7 +1,7 @@
 streamlit
 yfinance
 pandas
-numpy
+numpy==2.1.3
 datetime
 pathlib
 pandas-ta==0.3.14b0 
