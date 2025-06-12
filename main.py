@@ -20,17 +20,9 @@ import requests
 import random
 import time
 from bs4 import BeautifulSoup
-import nltk
 from transformers import pipeline
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-
-# Download required lexicons (FinBERT is used; VADER no longer used)
-# This line is crucial and should remain as it handles NLTK data download
-try:
-    nltk.data.find('corpora/vader_lexicon.zip')
-except nltk.downloader.DownloadError:
-    nltk.download('vader_lexicon')
 
 # Streamlit Configuration
 st.set_page_config(
@@ -64,8 +56,7 @@ INDICES_STOCKS_FILE = os.path.join(BASE_DIR, "indicesstocks.csv")
 NSE_STOCKS_FILE = os.path.join(BASE_DIR, "NSE-stocks.xlsx")
 SECTORS_FILE = os.path.join(BASE_DIR, "sectors with symbols.csv") # Used by GFS Qualified Stocks
 
-
-# --- Helper Functions (Keep these as they are from your original code) ---
+# --- Helper Functions ---
 
 # Function to append a row to a DataFrame (utility)
 def append_row(df, row):
@@ -233,7 +224,7 @@ def generateGFS(scripttype_file_name):
         st.error(f"Error generating GFS report from {filepath}: {e}")
     return indicesdf
 
-# --- LSTM Prediction Functions (Keep as is) ---
+# --- LSTM Prediction Functions ---
 def create_dataset(dataset, look_back=1):
     dataX, dataY = [], []
     for i in range(len(dataset) - look_back - 1):
@@ -279,7 +270,7 @@ def train_lstm_model(df):
     model.save("lstm_model.h5")
     return model, scaler, X_test, y_test, data_scaled
 
-# --- News Scraping & Sentiment Analysis Functions (Keep as is) ---
+# --- News Scraping & Sentiment Analysis Functions ---
 @st.cache_resource # Cache the FinBERT model
 def load_finbert_model():
     return pipeline('sentiment-analysis', model='ProsusAI/finbert')
@@ -388,7 +379,6 @@ def update_filtered_indices_by_sentiment(filtered_file_path, sentiment_method="F
     # For deployment, consider using Streamlit Secrets or Render Environment Variables for this.
     NEWS_API_KEY = st.secrets["NEWS_API_KEY"] if "NEWS_API_KEY" in st.secrets else os.environ.get("NEWS_API_KEY", "")
 
-
     for index, row in filtered_df.iterrows():
         company_name = row['Company Name']
         index_code = row['indexcode'] # Use indexcode for news search if company name is 'N/A' or problematic
@@ -447,7 +437,7 @@ def update_filtered_indices_by_sentiment(filtered_file_path, sentiment_method="F
 
     return sentiment_summary, filtered_df, all_news_data
 
-# --- Candlestick Pattern Recognition Functions (Keep as is) ---
+# --- Candlestick Pattern Recognition Functions ---
 def recognize_candlestick_patterns(df):
     if df.empty:
         return df
@@ -482,7 +472,7 @@ def recognize_candlestick_patterns(df):
                 })
     return pd.DataFrame(recognized_patterns)
 
-# --- Stock Fundamentals (Keep as is) ---
+# --- Stock Fundamentals ---
 @st.cache_data(ttl=3600) # Cache fundamentals for 1 hour
 def get_stock_fundamentals(ticker_symbol):
     try:
@@ -532,7 +522,6 @@ if 'news_articles_data' not in st.session_state:
     st.session_state.news_articles_data = []
 if 'error_logged' not in st.session_state:
     st.session_state.error_logged = False # To prevent repeated error messages for NewsAPI key
-
 
 # --- Streamlit App UI ---
 st.title("Comprehensive Stock Analysis and Forecasting")
@@ -838,7 +827,6 @@ with tab2:
             )
             st.info(" ".join(verdict_parts))
 
-
         # Fetch historical data for plotting and LSTM
         st.markdown("### Historical Data and LSTM Prediction")
         
@@ -895,7 +883,6 @@ with tab2:
                         fig_rsi.add_hline(y=30, annotation_text="Oversold", line_dash="dot", line_color="green")
                         fig_rsi.update_layout(title=f'{stock_symbol} Relative Strength Index (RSI)', yaxis_title='RSI Value')
                         st.plotly_chart(fig_rsi, use_container_width=True)
-
 
                     # LSTM Prediction
                     st.markdown("#### LSTM Price Prediction")
