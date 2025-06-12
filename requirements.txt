@@ -1,0 +1,16 @@
+streamlit
+yfinance
+pandas
+numpy
+datetime
+pathlib
+pandas-ta # Note the hyphen instead of underscore
+scikit-learn
+tensorflow
+plotly
+requests
+beautifulsoup4
+nltk
+transformers
+urllib3
+openpyxl
