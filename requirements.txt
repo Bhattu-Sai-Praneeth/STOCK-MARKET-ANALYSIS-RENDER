@@ -1,1 +1,13 @@
 streamlit 
+yfinance 
+pandas 
+numpy 
+pandas_ta 
+scikit-learn 
+tensorflow 
+plotly 
+requests 
+beautifulsoup4 
+nltk 
+transformers 
+openpyxl 
