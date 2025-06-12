@@ -4,7 +4,7 @@ pandas
 numpy
 datetime
 pathlib
-pandas-ta # Note the hyphen instead of underscore
+pandas-ta==0.3.14b0 
 scikit-learn
 tensorflow
 plotly
