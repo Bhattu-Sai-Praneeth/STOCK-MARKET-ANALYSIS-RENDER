@@ -981,7 +981,7 @@ with tab3:
     
     # 1. Load the NSE stocks Excel file and create a searchable dropdown.
     try:
-        stocks_file_path = os.path.join(BASE_DIR, "NSE-stocks.csv")
+        stocks_file_path = os.path.join(BASE_DIR, "NSE-stocks.xlsx")
         stocks_df = pd.read_excel(stocks_file_path)
         stocks_df['Display'] = stocks_df['Company'] + " (" + stocks_df['Ticker'] + ")"
         selected_option = st.selectbox(
