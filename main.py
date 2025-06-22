@@ -226,7 +226,7 @@ def predict_future(model, last_sequence, scaler, days=5):
         current_sequence[-1] = predicted_value
     return scaler.inverse_transform(np.array(predictions).reshape(-1, 1)).flatten()
 
-def get_predicted_values(data, epochs=170, batch_size=32, start_date=None, end_date=None):
+def get_predicted_values(data, epochs=170, batch_size=33, start_date=None, end_date=None):
     df = data.copy()
     df['Date'] = pd.to_datetime(df['Date'])
     df = df.sort_values('Date')
