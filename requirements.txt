@@ -12,4 +12,3 @@ lxml
 pytz
 python-dateutil
 pyyaml
-pandas-ta==0.3.14b0
