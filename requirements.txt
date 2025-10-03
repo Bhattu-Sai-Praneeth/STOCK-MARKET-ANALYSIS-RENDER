@@ -2,7 +2,7 @@ streamlit
 yfinance 
 pandas==1.5.3
 numpy==1.23.5
-pandas-ta==0.3.14b0
+pandas_ta
 scikit-learn 
 tensorflow 
 plotly 
