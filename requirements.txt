@@ -1,12 +1,11 @@
-# Using a slightly older, more stable version of Streamlit for better compatibility
-streamlit==1.24.1 
+streamlit==1.24.1
 pandas==2.2.1
 numpy==1.25.2
 matplotlib==3.8.1
 plotly==5.16.0
 seaborn==0.13.2
 scikit-learn==1.3.1
-# Removing version pins on these packages to allow dependency resolution to succeed
+pandas-ta==0.3.14b0 # Use known stable version for Python 3.10
 yfinance
 requests
 beautifulsoup4
