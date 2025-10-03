@@ -5,7 +5,7 @@ matplotlib==3.8.1
 plotly==5.16.0
 seaborn==0.13.2
 scikit-learn==1.3.1
---no-binary pandas-ta # DIRECTIVE: Force source build to bypass Git/version errors
+--no-binary pandas-ta # CRITICAL DIRECTIVE: Forces pip to build from source
 pandas-ta             # Package name, now unpinned
 yfinance==0.2.27
 requests==2.31.0
