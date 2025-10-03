@@ -12,4 +12,4 @@ lxml
 pytz
 python-dateutil
 pyyaml
-pandas-ta==0.3.14b0  # <-- Pinning the compatible version
+pandas-ta==0.4.25b0
