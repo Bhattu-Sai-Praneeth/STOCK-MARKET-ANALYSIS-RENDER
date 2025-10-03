@@ -1,14 +1,16 @@
-streamlit==1.26.0
+# Using a slightly older, more stable version of Streamlit for better compatibility
+streamlit==1.24.1 
 pandas==2.2.1
 numpy==1.25.2
 matplotlib==3.8.1
 plotly==5.16.0
 seaborn==0.13.2
 scikit-learn==1.3.1
-yfinance==0.2.27
-requests==2.31.0
-beautifulsoup4==4.13.0
-lxml==4.9.3
-pytz==2024.1
-python-dateutil==2.8.1
-pyyaml==6.0
+# Removing version pins on these packages to allow dependency resolution to succeed
+yfinance
+requests
+beautifulsoup4
+lxml
+pytz
+python-dateutil
+pyyaml
