@@ -1,14 +1,16 @@
-streamlit
-yfinance 
-pandas==1.5.3
-numpy==1.23.5
-pandas-ta
-scikit-learn
-tensorflow
-plotly
-requests
-beautifulsoup4
-nltk
-transformers
-openpyxl
-tf-keras
+streamlit==1.26.0
+pandas==2.2.1
+numpy==1.25.2
+matplotlib==3.8.1
+plotly==5.16.0
+seaborn==0.13.2
+scikit-learn==1.3.1
+--no-binary pandas-ta # CRITICAL: Forces pip to build pandas-ta from source
+pandas-ta            # The package itself
+yfinance==0.2.27
+requests==2.31.0
+beautifulsoup4==4.13.0
+lxml==4.9.3
+pytz==2025.7
+python-dateutil==2.8.2
+pyyaml==6.0
